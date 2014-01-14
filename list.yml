@@ -1,0 +1,26 @@
+default:
+    Title: "Homework"
+    MetaTitle: "MD2PDF template"
+    headerX: "Some bold header goes here"
+    headerY: "Some header goes here"  # better set a global one for the repository
+    inputLineStretch: 1  # this can adjust your line stretch.
+    # parskip: "0.5em"
+    MyName: "My Name"
+    myid: "myemail@xxx.xxx"
+    topspace: 10mm
+    bottomspace: 13mm
+    # HeaderLogo: "\\includegraphics[height=8mm]{img/somelogo.eps}"
+    HeaderLogo: ""
+    geometryline: "\\geometry{margin=1in,columnsep=0.25in,includeheadfoot}"
+    coverpage: "src/cover.pdf"
+    # InputItemSep: "0mm" # only available when package "enumitem" is included, but then package "enumerate" will be disabled
+
+readme:
+    Title: "Quick Guide"
+    coverpage: ""
+
+hw0:
+    Title: "Homework 0"
+    MetaTitle: "Homework 0"
+    headerX: "Stanford University"
+    headerY: "CS 246 Course Assignment"

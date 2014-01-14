@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%           MD2PDF General Template, single-column with header
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \documentclass[10pt,twocolumn,letterpaper]{article}
+\documentclass[12pt,letterpaper]{article}
+% \documentclass[11pt,twocolumn,letterpaper]{article}
+
+% List of additional packages
+\usepackage{graphicx} % Graphics support
+\usepackage{color} % Color support
+\usepackage{hyperref} % Internal/external hyperlinks
+\usepackage{hyphenat} % Improved hyphenation control
+\usepackage{url} % Improved urls
+\usepackage{xspace} % Smart spacings
+\usepackage{microtype} % Margin kerning / font expansion
+\usepackage{geometry} % Improved control over page layout
+\usepackage{titlesec} % Improved control over section headings
+\usepackage{fancyhdr} % Improved control over headers / footers
+\usepackage{mathptmx} % Narrow font, designed for multiple columns
+\usepackage{wrapfig} % Text-wrap around figures
+
+\usepackage{listings} % Color code
+\usepackage{lipsum}
+\usepackage{courier}
+% \usepackage{enumitem} % enable global spacing of enumerate
+\usepackage{enumerate} % enable enumerate[1.]
+\usepackage{subfigure}
+\usepackage{bbm} % indicator function
+
+% \setlist[enumerate]{itemsep=\InputItemSep}
+% \setlist[itemize]{itemsep=\InputItemSep}
+
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\lstset{framextopmargin=50pt,frame=bottomline}
+
+% Change itemize lineskip
+\let\tempone\itemize
+\let\temptwo\enditemize
+\renewenvironment{itemize}{\tempone\addtolength{\itemsep}{-0.3\baselineskip}
+\addtolength{\topsep}{-0.5\baselineskip}}{\temptwo}
+
+% \setmonofont{Consolas}
+
+% Define hyperref parameters
+\hypersetup{
+pdftitle={\MetaTitle},
+pdfauthor={\MyName},
+%pdfsubject={Extended Abstract for OSDI '10 Poster Session},
+%pdfkeywords={System Design, Wide-Area Network, Measurement},
+colorlinks=True,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,urlcolor=black,pdfstartview=FitH}
+
+% Define geometry parameters
+% \geometry{margin=0.75in,columnsep=0.25in
+% ,includeheadfoot}
+\geometryline
+\setlength{\headheight}{29pt}  % modification suggested by the compiler
+
+% Define leading between lines (to help squeeze onto one page)
+\renewcommand{\baselinestretch}{\inputLineStretch}
+
+% Define custom section command via 'titlesec' package
+% \titleformat{\section}[runin]{\normalfont}{\indent}{0em}{\bfseries}[:]
+% \titlespacing{\section}{0em}{0em}{0.5em}
+
+% Ensure that pages are typeset for letter output
+\pdfpagewidth=8.5 true in
+\pdfpageheight=11 true in
+
+% Customize header to display title / author information
+% \pagestyle{fancy}
+% \fancyhf[HR]{
+% \begin{tabular}[b]{r}
+% \small Department of Computer Science
+% \quad\\
+% \small Peking University, China
+% \vspace{0.1em}
+% \end{tabular}
+% \includegraphics[height=10mm]{img/pku_logo.png}
+% }
+\pagestyle{fancy}
+\fancyhf[HR]{
+\textbf{\headerX{}}\quad\\
+\small\headerY{}}
+\fancyhf[HL]{
+% \includegraphics[height=8mm]{img/pku_logo.eps} 
+\HeaderLogo
+\begin{tabular}[b]{l}
+  \textbf{\large{\Title}}\\
+  \small\textit{\MyName} (\myid)
+\end{tabular}}
+
+
+% Start document
+\begin{document}
+
+\input{temp}
+
+\end{document}

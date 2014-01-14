@@ -1,0 +1,6 @@
+Makefile
+temp.tex
+build/
+*-eps-converted-to.pdf
+*.DS_Store
+
