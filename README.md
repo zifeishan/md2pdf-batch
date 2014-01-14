@@ -46,7 +46,8 @@ Workflow description
 
 Dependencies
 ----
-- pandoc
+- [pandoc](http://johnmacfarlane.net/pandoc/installing.html) is a must. 
+  - If you are using Mac, we recommend you to download the package from [Here](https://code.google.com/p/pandoc/downloads/list), rather than using port / brew.
 - makefile
 - a latex compiler
 
