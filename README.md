@@ -50,3 +50,7 @@ Dependencies
 - makefile
 - a latex compiler
 
+Quick Guide
+----
+
+For more information, download the quick guide or find it in project file: https://github.com/zifeishan/md2pdf-batch/blob/master/guide.pdf
