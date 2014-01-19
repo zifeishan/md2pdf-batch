@@ -84,7 +84,7 @@ for name in conf:
         f.write("\tmv " + name + ".pdf build/"+name+".pdf\n")
 
         # remove the temperary logging files
-        # f.write("\trm temp.tex\n")
+        f.write("\trm temp.tex\n")
         f.write("\trm *.log *.aux *.out\n")
         # f.write("\topen build/" + name + ".pdf\n")
         f.write("\n")
