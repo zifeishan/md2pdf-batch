@@ -17,6 +17,14 @@ This project aims to make the workflow to write a batch of manuscripts / reports
 - Support batch workflow easier by input arguments in a list:
     - You can specify input arguments in the configuration file, either applied to all, or to a single document. These arguments are passed into your LaTeX compiler --- this gives flexibility in the batch process!
 
+What to look at
+----
+
+If you are looking at the repository to learn, make sure to look at these files:
+
+- Source code of this document is `src/guide.md`. 
+- The view is defined in `src/template.tex`.
+- Input parameters are defined in `list.yml`
 
 Workflow description
 ----

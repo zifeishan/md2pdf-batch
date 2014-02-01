@@ -4,6 +4,7 @@ default:
     headerX: "Some bold header goes here"
     headerY: "Some header goes here"  # better set a global one for the repository
     inputLineStretch: 1  # this can adjust your line stretch.
+    leftSubtitle: "\\textit{\\MyName} (\\myid)"
     # parskip: "0.5em"
     MyName: "My Name"
     myid: "myemail@xxx.xxx"
@@ -15,8 +16,12 @@ default:
     coverpage: "src/cover.pdf"
     # InputItemSep: "0mm" # only available when package "enumitem" is included, but then package "enumerate" will be disabled
 
-readme:
-    Title: "Quick Guide"
+guide:
+    Title: "Quick Guide"  # Change the default parameters here
+    headerX: "MD2PDF-batch project"
+    headerY: "https://github.com/zifeishan/md2pdf-batch"
+    MyName: "Zifei Shan"
+    myid: "zifeishan@gmail.com"
     coverpage: ""
 
 hw0:
