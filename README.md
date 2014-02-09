@@ -50,6 +50,7 @@ Dependencies
   - If you are using Mac, we recommend you to download the package from [Here](https://code.google.com/p/pandoc/downloads/list), rather than using port / brew.
 - makefile
 - a latex compiler
+- **Recommended**: Sublime Text and its plugin *LaTeXTools*.
 
 Quick Guide
 ----
