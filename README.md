@@ -8,16 +8,18 @@ This project aims to make the workflow to write a batch of manuscripts / reports
 - Write in markdowns, get papers. Help maintaining a clean paper
   repository.
 
-- It will make a latex project easy to read: 
+- It will make a latex project easy to read & write: 
   - separate templates and contents
   - itemize, emph, headers... expressed in Markdown!
-  - future work: easier figures / subfigures, and tables.
+  - Support natural representation of tables.
+  - future work: easier figures / subfigures.
 
 - Compatibility to latex:
   - You can use any latex environments in our markdown file.
 
 - Support batch workflow easier by input arguments in a list:
   - You can specify input arguments in the configuration file, either applied to all, or to a single document. These arguments are passed into your LaTeX compiler --- this gives flexibility in the batch process!
+
 
 
 Workflow description
@@ -56,3 +58,4 @@ Quick Guide
 ----
 
 For more information, download the quick guide or find it in project file: https://github.com/zifeishan/md2pdf-batch/blob/master/guide.pdf
+

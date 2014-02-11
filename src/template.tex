@@ -19,17 +19,25 @@
 \usepackage{geometry} % Improved control over page layout
 \usepackage{titlesec} % Improved control over section headings
 \usepackage{fancyhdr} % Improved control over headers / footers
-\usepackage{mathptmx} % Narrow font, designed for multiple columns
 \usepackage{wrapfig} % Text-wrap around figures
+
+% % Uncomment if you like Times fonts:
+% \usepackage{mathptmx} % Narrow font, designed for multiple columns
 
 \usepackage{listings} % Color code
 \usepackage{lipsum}
 \usepackage{courier}
-% \usepackage{enumitem} % enable global spacing of enumerate
-\usepackage{enumerate} % enable enumerate[1.]
+
+
+\usepackage{longtable} % Tables compiled by Pandoc
+\usepackage{booktabs} % Tables compiled by Pandoc
 \usepackage{subfigure}
 \usepackage{bbm} % indicator function
 
+\usepackage{enumerate} % enable enumerate[1.]. If disabled, use "#." in markdown.
+
+% % If you want to adjust global spacing of lists:
+% \usepackage{enumitem} % enable global spacing of enumerate; conflict with "enumerate" package above
 % \setlist[enumerate]{itemsep=\InputItemSep}
 % \setlist[itemize]{itemsep=\InputItemSep}
 
@@ -60,6 +68,13 @@ colorlinks=True,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=blac
 
 % Define leading between lines (to help squeeze onto one page)
 \renewcommand{\baselinestretch}{\inputLineStretch}
+
+% Paragraph Spacing
+\setlength{\parskip}{\inputParSkip}
+
+% Paragraph indent
+\usepackage{indentfirst} 
+
 
 % Define custom section command via 'titlesec' package
 % \titleformat{\section}[runin]{\normalfont}{\indent}{0em}{\bfseries}[:]
