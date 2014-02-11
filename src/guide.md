@@ -138,19 +138,22 @@ Natural representation of tables are supported by *Pandoc*. To use them, include
 
 Here is a sample table:
 
-Line1  Line2  Line3
-----   ----- -----------
-1       X     apple
-2       Y     banana
-3       Z     cranberry
+
+  Right     Left     Center     Default
+-------     ------ ----------   -------
+     12     12        12            12
+    123     123       123          123
+      1     1          1             1
 
 It is generated from following code in markdown:
 
-        Line1  Line2  Line3
-        ----   ----- -----------
-        1       X     apple
-        2       Y     banana
-        3       Z     cranberry
+
+          Right     Left     Center     Default
+        -------     ------ ----------   -------
+             12     12        12            12
+            123     123       123          123
+              1     1          1             1
+
 
 To make floating tables with references using `table` environment in \LaTeX, see Section \ref{sec:envir}.
 
