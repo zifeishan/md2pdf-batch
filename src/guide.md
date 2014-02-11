@@ -9,7 +9,8 @@ This project aims to make the workflow to write a batch of manuscripts / reports
 - It will make a latex project easy to read: 
     - separate templates and contents
     - itemize, emph, headers... expressed in Markdown!
-    - future work: easier figures / subfigures, and tables.
+    - Support natural representation of tables (as in *pandoc*).
+    - future work: easier figures / subfigures.
 
 - Compatibility to latex:
     - You can use any latex environments in our markdown file.
@@ -29,7 +30,7 @@ If you are looking at the repository to learn, make sure to look at these files:
 Workflow description
 ----
 
-1. Prepare template file in ```src/```. It should always only include a temp.tex file in the document:
+1. Prepare template file in `src/`. It should always only include a temp.tex file in the document:
 
 
             \begin{document}
@@ -37,25 +38,25 @@ Workflow description
             \end{document}
 
     - For any arguments you want to specify in configuration file rather
-    than fixed in template, just write ```\SomeName``` inside template,
-    and specify ```Somename``` in configuration list.
+    than fixed in template, just write `\SomeName` inside template,
+    and specify `Somename` in configuration list.
 
-2. Specify your configuration list in ```list.yml```, within Yaml format.
-    - For arguments that apply globally (to all sub-documents), specify it in ```default``` object.
-    - For arguments that apply to a single document, specify it in the document id object, e.g. ```hw0```.
+2. Specify your configuration list in `list.yml`, within Yaml format.
+    - For arguments that apply globally (to all sub-documents), specify it in `default` object.
+    - For arguments that apply to a single document, specify it in the document id object, e.g. `hw0`.
     - You can add a cover page by specifying *coverpage* argument.
 
-3. Put all your source files in ```src/```. The filename should be always ```DocID.md``` for system to recognize, e.g. ```hw0.md```.
-4. Run ```python configure.py``` to compile a Makefile.
-5. Run ```make all``` to make all documents into ```build``` directory, or make a single document regarding to the ID in list.yml, e.g. ```make hw0``` to make ```build/hw0.pdf```
+3. Put all your source files in `src/`. The filename should be always `DocID.md` for system to recognize, e.g. `hw0.md`.
+4. Run `python configure.py` to compile a Makefile.
+5. Run `make all` to make all documents into `build` directory, or make a single document regarding to the ID in list.yml, e.g. `make hw0` to make `build/hw0.pdf`
     
 
 Dependencies
 ----
 
-- pandoc
-- makefile
-- a latex compiler
+- Pandoc
+- Makefile
+- A latex compiler
 
 
 Source File Format
@@ -70,65 +71,106 @@ Paragraphs are split by an empty line.
 
 Section headers can be specified:
 
-- section: ```====``` or ```#```
-- subsection: ```----``` or ```##```
-- subsubsection: ```###```
+- section: `====` or `#`
+- subsection: `----` or `##`
+- subsubsection: `###`
 
-A good thing compared to \LaTeX is that you can directly use quotation marks: ```"```: "Hello world".
+A good thing compared to \LaTeX is that you can directly use quotation marks: `"`: "Hello world".
 
-Anything that begins with a ```\``` will have identical function with in LaTeX.
+Anything that begins with a `\` will have identical function with in LaTeX.
 
 Other useful formats:
 
-- **Strong**: ```**Strong**```
-- *Emphasis*: ```*Emphasis*```
-- \textsc{TextSc}: ```\textsc{TextSc}```
-- Comment: ```<!-- Something you want to comment -->``` <!-- Something you want to comment -->
+- **Strong**: `**Strong**`
+- *Emphasis*: `*Emphasis*`
+- \textsc{Small caps}: `\textsc{TextSc}`
+- Comment: `<!-- Something you want to comment -->` <!-- Something you want to comment -->
 
 ### A sample unordered list
 
-Be sure to have 1 empty line before the list.
-
 - Fruit
-    - Apple (Be sure to use 4 spaces for each indent!!!)
-    * Orange (either ```*``` or ```-``` is OK)
-    - Strawberry
+    - Apple <!-- (Be sure to use 4 spaces for each indent!!) -->
+    * Orange <!-- (either `*` or `-` is OK) -->
 - People
     * Alice
     - Barack
-    - Cathy
+
+This can be generated from the code:
+
+        <!-- Be sure to have 1 empty line before the list. -->
+
+        - Fruit
+            - Apple <!-- (Be sure to use 4 spaces for indents!!) -->
+            * Orange <!-- (either `*` or `-` is OK) -->
+        - People
+            * Alice
+            - Barack
 
 ### A Sample ordered list
 
 1. Fruit
-    (a) Apple (Be sure to use 4 spaces for each indent!!!)
+    (a) Apple
     (b) Orange
-    (c) Strawberry
 2. People
-    #. Alice (```#.``` also gives ordered list. This is useful when you do not include *enumerate* package.)
+    #. Alice <!-- `#.` also gives ordered list. This is useful when you do not include *enumerate* package. -->
     #. Barack
-    #. Cathy
-3. OtherPeople
-    1. Xlice
-    2. Yarack
-    3. Zathy
+3. Others
+    1. Tim
+    2. Bob
+
+This is generated from:
+
+        1. Fruit
+            (a) Apple
+            (b) Orange
+        2. People
+            #. Alice <!-- `#.` also gives ordered list. This is 
+               useful when you do not include *enumerate* package. -->
+            #. Barack
+        3. Others
+            1. Tim
+            2. Bob
+
+
+### Tables
+
+Natural representation of tables are supported by *Pandoc*. To use them, include package `longtable` and `booktabs`.  For more about pandoc tables, see: [http://johnmacfarlane.net/pandoc/README.html#tables](http://johnmacfarlane.net/pandoc/README.html#tables).
+
+Here is a sample table:
+
+Line1  Line2  Line3
+----   ----- -----------
+1       X     apple
+2       Y     banana
+3       Z     cranberry
+
+It is generated from following code in markdown:
+
+        Line1  Line2  Line3
+        ----   ----- -----------
+        1       X     apple
+        2       Y     banana
+        3       Z     cranberry
+
+To make floating tables with references using `table` environment in \LaTeX, see Section \ref{sec:envir}.
 
 
 Environments
 ----
+\label{sec:envir}   <!-- specifies a label for references -->
 
 Any \LaTeX environment is supported. You can directly write it in
 MarkDown.
 
-e.g. ```\begin{someEnvironment}...\end{someEnvironment}```
+e.g. `\begin{someEnvironment}...\end{someEnvironment}`
 
 
 ### Tabular
 
 Just use latex environment 
-```
-\begin{tabular}{lr} ... \end{tabular}
-```
+
+    \begin{tabular}{lr} ... \end{tabular}
+
 and you will get the tabular.
 
 \vspace{0.5em}  <!-- This is a linebreak -->
@@ -146,9 +188,9 @@ and you will get the tabular.
 
 ### Tables and Figures
 
-You have to specify and refer to tables and figures as you do in \LaTeX. You can refer to Table \ref{table:1}, Figure \ref{fig:1}: ```Table \ref{table:1}, Figure \ref{fig:1}```.
+You can specify and refer to tables and figures as you do in \LaTeX. For example, you can refer to Table \ref{table:1}, Figure \ref{fig:1}: `Table \ref{table:1}, Figure \ref{fig:1}`.
 
-\begin{table}[!t]
+\begin{table}[!b]
 \centering
 \caption{Some table}
 \label{table:1}
@@ -173,7 +215,7 @@ Cathy & 5.5284 & 15.8686\\
 \label{fig:1}
 \end{figure}
 
-You can use and refer to subfigures like following: Figure \ref{fig:sub1}: ```Figure \ref{fig:sub1}```.
+You can use and refer to subfigures like following: Figure \ref{fig:sub1}: `Figure \ref{fig:sub1}`.
 
 \begin{figure*}[!t]
 \centering
@@ -200,7 +242,7 @@ lan = 'Python'
 print 'This is a sample code block in %s' % lan!
 \end{lstlisting}
 
-You can use environment ```\begin{lstlisting}[language=python]...```, and craft your python/C++/Matlab code blocks...
+You can use environment `\begin{lstlisting}[language=python]...`, and craft your python/C++/Matlab code blocks...
 
 
 
